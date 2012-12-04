@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+require 'socket'
+
+# This code is originated from below.
+# http://d.hatena.ne.jp/snaka72/20090614/1244986772
+
+port = 23053
+gate = TCPServer.open(port)
+
+puts "Start listening GNTP on #{port}."
+
+begin
+  loop do
+    sock = gate.accept
+    while msg = sock.gets
+      sock.write <<EOS
+GNTP/1.0 -OK NONE\r\n
+\r\n
+EOS
+    end
+  end
+ensure
+  gate.close
+  sock.close if defined?(sock)
+  puts "Closed."
+end
