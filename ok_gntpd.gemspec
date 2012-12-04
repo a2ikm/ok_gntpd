@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = OkGntpd::VERSION
   gem.authors       = ["Masato Ikeda"]
   gem.email         = ["masato.ikeda@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{An GNTPd which always return "OK".}
+  gem.summary       = %q{An GNTPd which always return "OK".}
+  gem.homepage      = "https://github.com/a2ikm/ok_gntpd"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
