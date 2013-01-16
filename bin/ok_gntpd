@@ -2,7 +2,7 @@
 # coding: utf-8
 require 'socket'
 
-# This code is originated from below.
+# This code is originated from:
 # http://d.hatena.ne.jp/snaka72/20090614/1244986772
 
 port = 23053

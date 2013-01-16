@@ -1,6 +1,6 @@
 # OkGntpd
 
-TODO: Write a gem description
+An GTNP server which responds with "OK NONE". *This is not yet daemon.*
 
 ## Installation
 
@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Start GNTP server with:
+
+    $ ok_gntpd
+
+Press Ctrl-C to stop it.
 
 ## Contributing
 
