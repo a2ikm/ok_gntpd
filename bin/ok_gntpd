@@ -1,11 +1,19 @@
 #!/usr/bin/env ruby
 # coding: utf-8
+
+require 'optparse'
 require 'socket'
 
 # This code is originated from:
 # http://d.hatena.ne.jp/snaka72/20090614/1244986772
 
-port = 23053
+args = {}
+OptionParser.new do |op|
+  op.on('-p', '--port PORT') { |v| args[:port] = v.to_i }
+  op.parse!
+end
+
+port = args[:port] || 23053
 gate = TCPServer.open(port)
 
 puts "Start listening GNTP on #{port}."
