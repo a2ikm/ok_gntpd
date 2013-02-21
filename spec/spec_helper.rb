@@ -1,5 +1,6 @@
 $:.unshift File.expand_path("../../lib", __FILE__)
 
+require "rubygems"
 require "ok_gntpd"
 
 RSpec.configure do |config|

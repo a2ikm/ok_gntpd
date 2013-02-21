@@ -7,8 +7,11 @@ class OkGntpd
     new(options).start
   end
 
+  attr_reader :options, :status
+
   def initialize(options = nil)
     @options = default_options.merge(options || {})
+    @status = :stop
   end
 
   def start
@@ -17,6 +20,7 @@ class OkGntpd
 
     gate = TCPServer.open(port)
     begin
+      @status = :start
       loop do
         sock = gate.accept
         sock.write <<EOS
@@ -27,6 +31,7 @@ EOS
       end
     ensure
       gate.close
+      @status = :stop
       puts "Closed."
     end
   end
