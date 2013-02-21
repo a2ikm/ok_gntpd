@@ -19,16 +19,14 @@ class OkGntpd
     begin
       loop do
         sock = gate.accept
-        while msg = sock.gets
-          sock.write <<EOS
-GNTP/1.0 -OK NONE\r\n
-\r\n
+        sock.write <<EOS
+GNTP/1.0 -OK NONE\r
+\r
 EOS
-        end
+        sock.close
       end
     ensure
       gate.close
-      sock.close if defined?(sock)
       puts "Closed."
     end
   end
