@@ -1,35 +1,17 @@
 #!/usr/bin/env ruby
-# coding: utf-8
 
-require 'optparse'
-require 'socket'
+$:.unshift File.expand_path("../../lib", __FILE__)
+
+require "optparse"
+require "ok_gntpd"
 
 # This code is originated from:
 # http://d.hatena.ne.jp/snaka72/20090614/1244986772
 
-args = {}
+options = {}
 OptionParser.new do |op|
-  op.on('-p', '--port PORT') { |v| args[:port] = v.to_i }
+  op.on("-p", "--port PORT") { |v| options[:port] = v.to_i }
   op.parse!
 end
 
-port = args[:port] || 23053
-gate = TCPServer.open(port)
-
-puts "Start listening GNTP on #{port}."
-
-begin
-  loop do
-    sock = gate.accept
-    while msg = sock.gets
-      sock.write <<EOS
-GNTP/1.0 -OK NONE\r\n
-\r\n
-EOS
-    end
-  end
-ensure
-  gate.close
-  sock.close if defined?(sock)
-  puts "Closed."
-end
+OkGntpd.start(options)
