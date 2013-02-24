@@ -7,8 +7,6 @@ require "optparse"
 require "dante"
 require "ok_gntpd"
 
-# This code is originated from:
-# http://d.hatena.ne.jp/snaka72/20090614/1244986772
 Dante.run("ok_gntpd") do |options|
   OkGntpd.start(options)
 end

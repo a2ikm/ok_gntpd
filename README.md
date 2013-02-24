@@ -51,3 +51,10 @@ Stop it with:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+## Acknowledgement
+
+This code is originated from @snaka's post:
+http://d.hatena.ne.jp/snaka72/20090614/1244986772
+
