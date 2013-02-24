@@ -1,6 +1,6 @@
 # OkGntpd
 
-An GNTPd which always return "OK". Sorry, *this is not yet daemon*.
+An GNTPd which always return "OK".
 
 ## Installation
 
@@ -18,11 +18,31 @@ Or install it yourself as:
 
 ## Usage
 
+### As non-daemon
+
 Start GNTP server with:
 
     $ ok_gntpd
 
 Press Ctrl-C to stop it.
+You can specify port number with `-p` (default 23053).
+
+### As daemon
+
+Start GNTP server with:
+
+    $ ok_gntpd -d
+
+You can specify pid file with `-P` (default /var/run/ok_gntpd.pid).
+
+Stop it with:
+
+    $ ok_gntpd -k -P /path/to/pid/file
+
+### Help!
+
+    $ ok_gntpd --help
+
 
 ## Contributing
 
