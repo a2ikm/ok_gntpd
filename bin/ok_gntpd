@@ -2,16 +2,13 @@
 
 $:.unshift File.expand_path("../../lib", __FILE__)
 
+require "rubygems"
 require "optparse"
+require "dante"
 require "ok_gntpd"
 
 # This code is originated from:
 # http://d.hatena.ne.jp/snaka72/20090614/1244986772
-
-options = {}
-OptionParser.new do |op|
-  op.on("-p", "--port PORT") { |v| options[:port] = v.to_i }
-  op.parse!
+Dante.run("ok_gntpd") do |options|
+  OkGntpd.start(options)
 end
-
-OkGntpd.start(options)
