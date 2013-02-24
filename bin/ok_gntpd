@@ -7,6 +7,6 @@ require "optparse"
 require "dante"
 require "ok_gntpd"
 
-Dante.run("ok_gntpd") do |options|
+Dante.run("ok_gntpd", OkGntpd.default_options) do |options|
   OkGntpd.start(options)
 end

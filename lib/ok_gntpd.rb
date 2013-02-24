@@ -7,10 +7,16 @@ class OkGntpd
     new(options).start
   end
 
+  def self.default_options
+    {
+      :port   => 23053
+    }
+  end
+
   attr_reader :options, :status
 
   def initialize(options = nil)
-    @options = default_options.merge(options || {})
+    @options = self.class.default_options.merge(options || {})
     @status = :stop
   end
 
@@ -35,12 +41,4 @@ EOS
       puts "Closed."
     end
   end
-
-
-  private
-    def default_options
-      {
-        :port   => 23053
-      }
-    end
 end
