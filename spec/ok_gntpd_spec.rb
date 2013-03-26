@@ -9,7 +9,7 @@ describe OkGntpd do
       Thread.pass
       s.start
     end
-    t.join(0.05) until server.status != :stop
+    t.join(0.05) until server.started?
 
     begin
       sock = TCPSocket.open("127.0.0.1", server.options[:port])

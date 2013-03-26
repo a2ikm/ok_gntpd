@@ -20,6 +20,10 @@ class OkGntpd
     @status = :stop
   end
 
+  def started?
+    status == :start
+  end
+
   def start
     port = @options[:port]
     puts "Start listening GNTP on #{port}."
